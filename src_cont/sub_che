@@ -1,0 +1,22 @@
+#!/bin/bash
+#======================
+# To sub: qsub sub_che 
+#======================
+#PBS -N dgyre_exp
+#PBS -A UMIA0031
+#PBS -l walltime=03:59:00
+#PBS -q share
+## economy or regular
+## oe: merge; n: separate
+#PBS -j n
+### Select 2 nodes with 36 CPUs each for a total of 72 MPI processes 
+#PBS -l select=1:ncpus=1:mpiprocs=1
+
+### Load correct environment 
+#source /etc/profile.d/modules.sh
+#source ../build/intel/env
+
+### Run the executable
+#mpiexec_mpt dplace -s 1 ./main
+#mpirun -n 4 ./main
+./main
